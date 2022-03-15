@@ -14,7 +14,7 @@ export default function UserList() {
                 <Sidebar/>
 
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8">
-                    <Flex mb="8" align="center">
+                    <Flex mb="8" align="space" justify="space-between">
                         <Heading size="lg" fontWeight="normal">
                             Usuários
                         </Heading>
