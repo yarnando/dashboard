@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
     Box,
     Button,
@@ -48,19 +49,21 @@ import {
               <Heading size="lg" fontWeight="normal">
                 Usuários
               </Heading>
-  
-              <Button
-                as="a"
-                size="sm"
-                fontSize="sm"
-                colorScheme="pink"
-                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-                _hover={{
-                  cursor: "pointer",
-                }}
-              >
-                Criar novo
-              </Button>
+
+              <Link href="/users/create" passHref>
+                <Button
+                  as="a"
+                  size="sm"
+                  fontSize="sm"
+                  colorScheme="pink"
+                  leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+                  _hover={{
+                    cursor: "pointer",
+                  }}
+                >
+                  Criar novo
+                </Button>
+              </Link>
             </Flex>
   
             <Table colorScheme="whiteAlpha" w={["100%"]}>

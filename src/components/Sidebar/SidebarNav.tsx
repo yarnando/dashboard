@@ -9,11 +9,13 @@ export default function SidebarNav() {
 
             <NavSection title="GERAL">
                 <NavLink
+                    href="/dashboard"
                     icon={RiDashboardLine}
                 >
                     Dashboard
                 </NavLink>
                 <NavLink
+                    href="/users"
                     icon={RiContactsLine}
                 >
                     Usuários
@@ -22,11 +24,13 @@ export default function SidebarNav() {
 
             <NavSection title="GERAL">
                 <NavLink
+                    href="/forms"                
                     icon={RiInputMethodLine}
                 >
                     Formulários
                 </NavLink>
                 <NavLink
+                    href="/automation"                
                     icon={RiGitMergeLine}
                 >
                     Automação
