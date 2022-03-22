@@ -16,11 +16,14 @@ type SignInFormData = {
 
 export default function SignIn() {
 
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState } = useForm()
+
+  const { errors } = formState
 
   const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
     console.log(values);
   }
+
 
   return (
     <Flex
@@ -47,7 +50,10 @@ export default function SignIn() {
               name="email"
               type="email"
               label="E-mail"
-              {...register('email')}
+              error={errors.email}
+              {...register('email', {
+                required: 'E-mail é obrigatório',
+              })}
             />
 
           </FormControl>
@@ -58,7 +64,10 @@ export default function SignIn() {
               name="password"
               type="password"
               label="Senha"
-              {...register('password')}
+              error={errors.password}
+              {...register('password', {
+                required: 'Por favor, digite uma senha',
+              })}
             />            
 
           </FormControl>
