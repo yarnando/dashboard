@@ -47,6 +47,8 @@ export default function UserList() {
     });
     
     return users;
+  },{
+    staleTime: 1000 * 5, // A requisição fica "fresh" por 5 segundos e não precisa ser recarregada pelo query. (por padrão o react query deixa tudo obsoleto, que é o "stale")
   })
 
   // Estado para o isWideVersion já começar como false para corrigir bug ao abrir a página
