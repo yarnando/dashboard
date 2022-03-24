@@ -1,4 +1,4 @@
-import { createServer, Factory, Model } from "miragejs";
+import { createServer, Factory, Model, Response } from "miragejs";
 import { faker } from '@faker-js/faker'
 
 type User = {
@@ -31,7 +31,7 @@ export function makeServer() {
 
         seeds(server) {
             //quantos users vc quer criar? nesse caso, 200
-            server.createList('user', 10)
+            server.createList('user', 200)
         },
 
         routes() {
@@ -40,7 +40,24 @@ export function makeServer() {
             //delay pra carregar os dados
             this.timing = 750;
 
-            this.get('/users');
+            this.get('/users', function (schema, request) {
+                const { page = 1, per_page = 10 } = request.queryParams
+
+                const total = schema.all('user').length
+
+                const pageStart = (Number(page) - 1)
+                const pageEnd = pageStart + Number(per_page)
+                
+                //lembrar: slice nao inclui o ultimo indice
+                const users = this.serialize(schema.all('user')).users.slice(pageStart, pageEnd)
+
+                return new Response(
+                    200,
+                    { 'x-total-count': String(total) },
+                    { users }
+                )
+            });
+
             this.post('/users');
 
             //limpa o '/api' pra nao dar conflito com o /api do NextJs e o passthrough manda em frente
