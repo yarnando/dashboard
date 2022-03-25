@@ -29,7 +29,9 @@ import { useUsers } from "../../services/hooks/useUsers";
 
 export default function UserList() {
 
-  const { data, isLoading, isFetching, error } = useUsers()
+  const [page, setPage] = useState(1)
+
+  const { data, isLoading, isFetching, error } = useUsers(page)
 
   // Estado para o isWideVersion já começar como false para corrigir bug ao abrir a página
   const [isWideVersion, setIsWideVersion] = useState(false);
@@ -120,7 +122,7 @@ export default function UserList() {
                   </Thead>
                   <Tbody>
 
-                    {data.map(user => {
+                    {data.users.map(user => {
                       return (
                         <Tr
                           key={user.id}
@@ -216,9 +218,9 @@ export default function UserList() {
                 </Table>
 
                 <Pagination
-                  totalCountOfRegisters={200}
-                  currentPage={5}
-                  onPageChange={() => {}}
+                  totalCountOfRegisters={data.totalCount}
+                  currentPage={page}
+                  onPageChange={setPage}
                 />
               </>
             )
