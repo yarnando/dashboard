@@ -58,6 +58,8 @@ export function makeServer() {
                 )
             });
 
+            this.get('/users/:id')
+
             this.post('/users');
 
             //limpa o '/api' pra nao dar conflito com o /api do NextJs e o passthrough manda em frente

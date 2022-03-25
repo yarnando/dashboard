@@ -48,6 +48,6 @@ export function useUsers(page: number) {
     //o React Query só refaz a requisição se esse segundo parametro mudar
     //as páginas anteriores não saem do cache <3
     return useQuery(['users', page], () => getUsers(page), {
-        staleTime: 1000 * 5, // A requisição fica "fresh" por 5 segundos e não precisa ser recarregada pelo query. (por padrão o react query deixa tudo obsoleto, que é o "stale")
+        staleTime: 1000 * 60 * 10, // A requisição fica "fresh" 10 minutos e não precisa ser recarregada pelo query. (por padrão o react query deixa tudo obsoleto, que é o "stale")
     })
 }
