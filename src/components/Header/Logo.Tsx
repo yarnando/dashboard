@@ -12,7 +12,7 @@ export default function Logo() {
             <Text
                 as="span"
                 ml={1}
-                color="pink.500"
+                color="green.500"
             >.</Text>
         </Text>
     )

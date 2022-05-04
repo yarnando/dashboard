@@ -137,7 +137,7 @@ export default function CreateUser() {
                                     </Button>
                                 </Link>
                                     <Button
-                                        colorScheme="pink"
+                                        colorScheme="green"
                                         type="submit"
                                         isLoading={formState.isSubmitting}
                                     >

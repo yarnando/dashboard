@@ -88,7 +88,7 @@ export default function UserList() {
                 as="a"
                 size="sm"
                 fontSize="sm"
-                colorScheme="pink"
+                colorScheme="green"
                 leftIcon={<Icon as={RiAddLine} fontSize="20" />}
                 _hover={{
                   cursor: "pointer",
@@ -115,7 +115,7 @@ export default function UserList() {
                     {isWideVersion ? (
                       <Tr>
                         <Th px={["0", "0", "6"]} color="gray.300" width="8">
-                          <Checkbox colorScheme="pink" />
+                          <Checkbox colorScheme="green" />
                         </Th>
                         <Th>Usuário</Th>
                         <Th>Data de cadastro</Th>
@@ -130,7 +130,7 @@ export default function UserList() {
                           justifyContent="space-between"
                         >
                           <Text>Selecionar todos:</Text>
-                          <Checkbox colorScheme="pink" />
+                          <Checkbox colorScheme="green" />
                         </Th>
                       </Tr>
                     )}
@@ -159,7 +159,7 @@ export default function UserList() {
                             }}
                             data-label={!isWideVersion ? "Check:" : ""}
                           >
-                            <Checkbox colorScheme="pink" />
+                            <Checkbox colorScheme="green" />
                           </Td>
                           <Td
                             px={["0", "0", "6"]}

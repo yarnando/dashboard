@@ -11,6 +11,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Input } from '../components/Form/Input'
+import { useRouter } from 'next/router';
 
 type SignInFormData = {
   email: string;
@@ -22,7 +23,9 @@ const signInFormSchema = yup.object().shape({
   password: yup.string().required('Senha obrigatória'),
 })
 
+
 export default function SignIn() {
+  const router = useRouter()
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchema)
@@ -31,7 +34,7 @@ export default function SignIn() {
   const { errors } = formState
 
   const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
-    console.log(values);
+    router.push('/users')
   }
 
 
@@ -80,7 +83,7 @@ export default function SignIn() {
 
         </Stack>
 
-        <Button type="submit" mt="6" colorScheme="pink" size="lg">
+        <Button type="submit" mt="6" colorScheme="green" size="lg">
           Entrar
         </Button>
 
